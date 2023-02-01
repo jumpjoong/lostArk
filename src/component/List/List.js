@@ -28,7 +28,7 @@ function List() {
             </div>
           <div className={drop ? 'hidden active' : 'hidden noActive'}>
             <ul>
-              {/* {
+              {
                 drop && name.state.group.current.map((obj, key)=> {
                   return <li key={key}>
                     <Link to={`/${obj.CharacterName}`} state={{ name : obj.CharacterName , group : name.state.group }} onClick={list}>
@@ -36,7 +36,7 @@ function List() {
                     </Link>
                     </li>
                 })
-              } */}
+              }
             </ul>
           </div> 
           </div>
