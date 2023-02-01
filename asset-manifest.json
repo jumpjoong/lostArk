@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/lostArk/static/css/main.880066c9.css",
+    "main.js": "/lostArk/static/js/main.6adada90.js",
+    "static/js/787.da558b7b.chunk.js": "/lostArk/static/js/787.da558b7b.chunk.js",
+    "index.html": "/lostArk/index.html",
+    "main.880066c9.css.map": "/lostArk/static/css/main.880066c9.css.map",
+    "main.6adada90.js.map": "/lostArk/static/js/main.6adada90.js.map",
+    "787.da558b7b.chunk.js.map": "/lostArk/static/js/787.da558b7b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.880066c9.css",
+    "static/js/main.6adada90.js"
+  ]
+}
