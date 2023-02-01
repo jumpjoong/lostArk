@@ -69,6 +69,7 @@ function Characters() {
   useEffect(()=> {
     window.scrollTo(0, 0)
   },[])
+  
   return (
     <main className="second-main">
       <div className='char'>
