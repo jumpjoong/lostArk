@@ -245,7 +245,7 @@ p, dl, dt, dd, li {
               width: 40%;
               .image {
                 width: 90%;
-                height: 640px;
+                height: 700px;
                 object-fit: cover;
               }
             }
@@ -294,14 +294,16 @@ p, dl, dt, dd, li {
                   display: flex;
                   flex-wrap: wrap;
                   div {
+                    justify-content: space-between;
                     width: 50%;
                     display: flex;
                     p {
                       &:nth-of-type(1) {
-                        padding: 0 10px 10px 0;
+                        padding: 0 0 10px 0;
                       }
                       &:nth-of-type(2) {
                         color: #b34300;
+                        padding-right: 10px;
                       }
                     }
                   }
@@ -322,14 +324,16 @@ p, dl, dt, dd, li {
                   display: flex;
                   flex-wrap: wrap;
                   div {
+                    justify-content: space-between;
                     width: 50%;
                     display: flex;
                     p {
                       &:nth-of-type(1) {
-                        padding: 0 10px 10px 0;
+                        padding: 0 0 10px 0;
                       }
                       &:nth-of-type(2) {
                         color: #b34300;
+                        padding-right: 10px;
                       }
                     }
                   }
@@ -533,10 +537,10 @@ p, dl, dt, dd, li {
   }
   #root {
     dl, dd, dt {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
     p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
     .second-main {
       .char {
@@ -551,7 +555,7 @@ p, dl, dt, dd, li {
                     div {
                       p {
                         &:nth-of-type(1) {
-                          padding: 0 10px 15px 0;
+                          padding: 0 0 15px 0;
                         }
                       }
                     }
@@ -574,7 +578,7 @@ p, dl, dt, dd, li {
               display: inline-block;
             }
             .stats {
-              width: 49%;
+              width: 38%;
             }
           }
         }
@@ -583,7 +587,7 @@ p, dl, dt, dd, li {
             > ul {
               flex-wrap: wrap;
               li {
-                width: 14%;
+                width: 12%;
                 margin-bottom: 12px;
               }
             }
@@ -698,7 +702,7 @@ p, dl, dt, dd, li {
                     div {
                       p {
                         &:nth-of-type(1) {
-                          padding: 0 5px 10px 0;
+                          padding: 0 0 10px 0;
                         }
                       }
                     }
@@ -716,12 +720,12 @@ p, dl, dt, dd, li {
               }
             }
             .serve {
-              width: 49%;
+              width: 51%;
               order: 0;
               display: inline-block;
             }
             .stats {
-              width: 49%;
+              width: 38%;
             }
           }
         }
