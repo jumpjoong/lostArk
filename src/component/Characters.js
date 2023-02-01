@@ -66,7 +66,9 @@ function Characters() {
     je = char.Stats.slice(6,8);
   }
     
-  // console.log(name)
+  useEffect(()=> {
+    window.scrollTo(0, 0)
+  },[])
   return (
     <main className="second-main">
       <div className='char'>
