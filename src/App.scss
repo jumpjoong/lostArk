@@ -46,12 +46,14 @@ p, dl, dt, dd, li {
           height: 50px;
           padding: 0 40px;
           border-radius: 25px;
+          font-size: 1rem;
         }
         > img {
           position: absolute;
           right: 5%;
           top: 50%;
           transform: translateY(-50%);
+          padding: 5px;
         }
       }
     }
