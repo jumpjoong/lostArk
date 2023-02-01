@@ -9,7 +9,7 @@ function List() {
   const list = () => {
     setDrop(!drop)
   }
-  
+
   if (name !== undefined) {
   return (
     <div className='name'>
@@ -42,8 +42,8 @@ function List() {
         </div>
       </div>
     </div>
-    }
   )
+}
 }
 
 
