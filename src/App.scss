@@ -215,10 +215,11 @@ p, dl, dt, dd, li {
         .info-box {
           justify-content: center;
           display: flex;
-          width: 72.916%;
+          width: 90%;
           margin: 0 auto;
           .serve {
             width: 20%;
+            order: -1;
             dl {
               display: flex;
               align-items: center;
@@ -240,7 +241,7 @@ p, dl, dt, dd, li {
             }
           }
           > div {
-            &:nth-child(2) {
+            &:nth-child(1) {
               width: 40%;
               .image {
                 width: 90%;
@@ -250,7 +251,7 @@ p, dl, dt, dd, li {
             }
           }
           .stats {
-            width: 20%;
+            width: 15%;
             text-align: center;
             .stats-box {
               display: flex;
@@ -425,6 +426,30 @@ p, dl, dt, dd, li {
       }
     }
   }
+  #root {
+    .second-main {
+      .char {
+        .name {
+          .name-sub {
+            > a {
+              left: 0%;
+            }
+          }
+        }
+        .info {
+          .info-box {
+            width: 100%;
+            .serve {
+              width: 20%;
+            }
+            .stats {
+              width: 20%;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 @media screen and (max-width: 1024px) {
   .App {
@@ -447,7 +472,34 @@ p, dl, dt, dd, li {
       }
     }
   }
-  
+  #root {
+    .second-main {
+      .char {
+        .info {
+          .info-box {
+            .serve {
+              width: 25%;
+              dl {
+                dd {
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                }
+              }
+            }
+            .stats {
+              width: 25%;
+            }
+          }
+        }
+        .more {
+          > div {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
 }
 @media screen and (max-width: 768px) {
   .App {
@@ -497,6 +549,70 @@ p, dl, dt, dd, li {
         > ul {
           li {
             width: 95%;
+          }
+        }
+      }
+    }
+  }
+
+}
+@media screen and (max-width: 390px) {
+  dl, dd, dt {
+    font-size: 14px;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+  #root {
+    .second-main {
+      .char {
+        .info {
+          margin-bottom: 0;
+          .info-box {
+            flex-wrap: wrap;
+            .stats {
+              .stats-box {
+                .war {
+                  .war-second {
+                    div {
+                      p {
+                        &:nth-of-type(1) {
+                          padding: 0 5px 10px 0;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            > div {
+              &:nth-child(1) {
+                width: 100%;
+                .image {
+                  width: 100%;
+                  height: auto;
+                }
+              }
+            }
+            .serve {
+              width: 49%;
+              order: 0;
+              display: inline-block;
+            }
+            .stats {
+              width: 49%;
+            }
+          }
+        }
+        .more {
+          > div {
+            > ul {
+              flex-wrap: wrap;
+              li {
+                width: 12%;
+                margin-bottom: 12px;
+              }
+            }
           }
         }
       }

@@ -74,6 +74,9 @@ function Characters() {
           <List />
           <div className='info'>
             <div className="info-box">
+              <div>
+                <img src = {char && char.CharacterImage} alt="" className='image'></img>
+              </div>
               <div className="serve">
                 <dl className='server'>
                   <dt>&nbsp;서&nbsp;&nbsp;&nbsp;&nbsp;버&nbsp;</dt>
@@ -143,77 +146,74 @@ function Characters() {
                   </dd>
                 </dl>
               </div>
-              <div>
-                <img src = {char && char.CharacterImage} alt="" className='image'></img>
-              </div>
-                <div className="stats">
-                  <div className="stats-box">
-                    <div className="basic">
-                      <p>기본특성</p>
-                      <div className="basic-second">
-                        {
-                          je && je.map((obj, key)=> {
-                            return <div key={key}>
-                              <p >
-                                {obj.Type}
-                              </p>
-                              <p>
-                                {obj.Value}
-                              </p>
-                            </div>
-                          })
-                        }
-                      </div>
-                    </div>
-                    <div className="war">
-                    <p>전투특성</p>
-                      <div className="war-second">
-                        {
-                          char && ms.map((obj, key)=> {
-                            return <div key={key}>
-                              <p >
-                                {obj.Type}
-                              </p>
-                              <p>
-                                {obj.Value}
-                              </p>
-                            </div>
-                          })
-                        }
-                      </div>
-                    </div>
-                    <div className="mococo">
-                    <p>성향</p>
-                      <div className="mococo-second">
-                        {
-                          char && char.Tendencies.map((obj, key)=> {
-                            return <div key={key}>
-                              <p >
-                                {obj.Type}
-                              </p>
-                              <p>
-                                {obj.Point}
-                              </p>
-                            </div>
-                          })
-                        }
-                      </div>
-                    </div>
-                    <div className="engrave">
-                    <p>각인 효과</p>
-                      <div className="engrave-second">
-                        {
-                          engra && engra.Effects.map((obj, key)=> {
-                            return <div key={key}>
-                              <p >
-                                {obj.Name}
-                              </p>
-                            </div>
-                          })
-                        }
-                      </div>
+              <div className="stats">
+                <div className="stats-box">
+                  <div className="basic">
+                    <p>기본특성</p>
+                    <div className="basic-second">
+                      {
+                        je && je.map((obj, key)=> {
+                          return <div key={key}>
+                            <p >
+                              {obj.Type}
+                            </p>
+                            <p>
+                              {obj.Value}
+                            </p>
+                          </div>
+                        })
+                      }
                     </div>
                   </div>
+                  <div className="war">
+                  <p>전투특성</p>
+                    <div className="war-second">
+                      {
+                        char && ms.map((obj, key)=> {
+                          return <div key={key}>
+                            <p >
+                              {obj.Type}
+                            </p>
+                            <p>
+                              {obj.Value}
+                            </p>
+                          </div>
+                        })
+                      }
+                    </div>
+                  </div>
+                  <div className="mococo">
+                  <p>성향</p>
+                    <div className="mococo-second">
+                      {
+                        char && char.Tendencies.map((obj, key)=> {
+                          return <div key={key}>
+                            <p >
+                              {obj.Type}
+                            </p>
+                            <p>
+                              {obj.Point}
+                            </p>
+                          </div>
+                        })
+                      }
+                    </div>
+                  </div>
+                  <div className="engrave">
+                  <p>각인 효과</p>
+                    <div className="engrave-second">
+                      {
+                        engra && engra.Effects.map((obj, key)=> {
+                          return <div key={key}>
+                            <p >
+                              {obj.Name}
+                            </p>
+                          </div>
+                        })
+                      }
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

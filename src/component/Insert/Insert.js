@@ -8,7 +8,7 @@ function Insert( { search, elName } ) {
       <div className="inputwrapper">
         <input ref={elName} type="text" placeholder="캐릭터 명을 입력하세요">
         </input>
-        <img src="icon/search.gif" alt="검색"/>
+        <img onClick={search} src="icon/search.gif" alt="검색"/>
       </div>
     </form>
     </>
