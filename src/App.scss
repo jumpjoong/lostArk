@@ -550,6 +550,11 @@ p, dl, dt, dd, li {
           margin-bottom: 0;
           .info-box {
             flex-wrap: wrap;
+            > div {
+              &:nth-of-type(1) {
+                margin-bottom: 20px;
+              }
+            }
             .stats {
               .stats-box {
                 .war {
@@ -738,6 +743,44 @@ p, dl, dt, dd, li {
               li {
                 width: 12%;
                 margin-bottom: 12px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 330px) {
+  #root {
+    .second-main {
+      .char {
+        .info {
+          .info-box {
+            .stats {
+              .stats-box {
+                .war {
+                  .war-second {
+                    div {
+                      p {
+                        &:nth-of-type(2) {
+                          padding-right: 5px;
+                        }
+                      }
+                    }
+                  }
+                }
+                .mococo {
+                  .mococo-second {
+                    div {
+                      p {
+                        &:nth-of-type(2) {
+                          padding-right: 5px;
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }
