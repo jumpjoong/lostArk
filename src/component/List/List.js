@@ -15,7 +15,7 @@ function List() {
       <div className='name'>
         <div className='name-sub'>
           <Link to="/">
-            <p><img src='./icon/mococo.jpg' alt='메인으로가기'></img></p>
+            <p><img src='./icon/mococo.gif' alt='메인으로가기'></img></p>
           </Link>
           <div className='header-sub' onClick={list}>
             <div className="list">
