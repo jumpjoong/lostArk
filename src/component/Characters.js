@@ -4,7 +4,6 @@ import { useLocation } from 'react-router-dom';
 import { bigData } from './myContext';
 import List from './List/List';
 import Gem from './Gem/Gem'
-import Insert from './Insert/Insert';
 
 function Characters() {
   const name = useLocation();
