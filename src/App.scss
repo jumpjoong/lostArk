@@ -33,6 +33,17 @@ p, dl, dt, dd, li {
     z-index: 9;
     width: 100%;
     background-color: #15181d;
+    > div {
+      position: absolute;
+      left: 2%;
+      top: 0%;
+      width: 99px;
+      height: 99px;
+      transform: scale(0.6);
+      img {
+        width: 100%;
+      }
+    }
     form {
       height: 100%;
       position: relative;
@@ -144,6 +155,7 @@ p, dl, dt, dd, li {
             transform: translate(-50%, -50%);
             height: 58px;
             > p {
+              height: 58px;
               img {
                 width: 58px;
                 height: 58px;

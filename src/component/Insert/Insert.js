@@ -4,6 +4,9 @@ function Insert( { search, elName } ) {
 
   return (
     <>
+    <div>
+      <img src="./icon/main.png" alt='로아'></img>
+    </div>
     <form onSubmit={search} autoComplete="off">
       <div className="inputwrapper">
         <input ref={elName} type="text" placeholder="캐릭터 명을 입력하세요">

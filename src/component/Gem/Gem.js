@@ -12,8 +12,6 @@ function Gem() {
   }
   //보석 마우스 오버 시 이벤트
   const mouse = (e) => {
-    window.event.preventDefault();
-    window.event.stopImmediatePropagation();
     let test = [...tip];
     test[e] = true;
     // test[e]=!test[e];
