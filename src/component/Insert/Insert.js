@@ -1,11 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Insert( { search, elName } ) {
 
   return (
     <>
     <div>
-      <img src="./icon/main.png" alt='로아'></img>
+      <Link to='/'>
+        <p>
+          <img src="./icon/main.png" alt='로아' /> 
+        </p>
+      </Link>
     </div>
     <form onSubmit={search} autoComplete="off">
       <div className="inputwrapper">

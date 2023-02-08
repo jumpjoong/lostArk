@@ -1,0 +1,593 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+  font-style: normal;
+}
+* {
+  list-style: none;
+  text-decoration: none;
+  padding: 0;
+  margin: 0;
+  letter-spacing: -0.7px;
+  box-sizing: border-box;
+  font-family: "Pretendard-Regular";
+}
+
+p, dl, dt, dd, li {
+  color: white;
+  font-size: 1.2rem;
+  font-family: "Pretendard-Regular";
+}
+
+.App {
+  text-align: center;
+  position: relative;
+  width: 100vw;
+  background-color: #15181d;
+}
+.App header {
+  height: 100px;
+  border-bottom: 1px solid #40444f;
+  position: fixed;
+  top: 0;
+  z-index: 9;
+  width: 100%;
+  background-color: #15181d;
+}
+.App header > div {
+  position: absolute;
+  left: 2%;
+  top: 0%;
+  width: 99px;
+  height: 99px;
+  transform: scale(0.6);
+}
+.App header > div > a {
+  display: block;
+}
+.App header > div img {
+  width: 100%;
+}
+.App header form {
+  height: 100%;
+  position: relative;
+}
+.App header form .inputwrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.App header form .inputwrapper input {
+  width: 400px;
+  height: 50px;
+  padding: 0 40px;
+  border-radius: 25px;
+  font-size: 1rem;
+}
+.App header form .inputwrapper > img {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 5px;
+}
+.App .first-main {
+  padding: 200px 0 2000px;
+}
+.App .first-main .search-box > ul {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+}
+.App .first-main .search-box > ul li {
+  width: 23%;
+  margin-bottom: 5%;
+}
+.App .first-main .search-box > ul li:not(:nth-child(4n)) {
+  margin-right: 2.5%;
+}
+.App .first-main .search-box > ul li a .char-box .server {
+  width: 70%;
+  margin: 0 auto;
+  border-radius: 25px;
+  background-color: #40444f;
+}
+.App .first-main .search-box > ul li a .char-box p:nth-of-type(1) {
+  margin-bottom: 5%;
+}
+.App .first-main .search-box > ul li a .char-box p:nth-of-type(2) img {
+  width: 200px;
+  height: 230px;
+}
+.App .first-main .search-box > ul li a .char-box .char-info {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.App .first-main .search-box > ul li a .char-box .char-info > p {
+  width: 49%;
+}
+.App .first-main .search-box > ul li a .char-box .char-info > p:nth-child(even) {
+  text-align: left;
+  padding-left: 5%;
+}
+.App .first-main .search-box > ul li a .char-box .char-info > p:nth-child(odd) {
+  text-align: right;
+}
+
+#root .second-main {
+  position: relative;
+  width: 100vw;
+  background-color: #0e1015;
+}
+#root .second-main .char {
+  padding-bottom: 1000px;
+}
+#root .second-main .char .name {
+  border-bottom: 1px solid #40444f;
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+#root .second-main .char .name .name-sub {
+  width: 72.916%;
+  margin: 0 auto;
+  line-height: 36px;
+  position: relative;
+}
+#root .second-main .char .name .name-sub > a {
+  z-index: 9999;
+  position: absolute;
+  left: 12%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 58px;
+}
+#root .second-main .char .name .name-sub > a > p {
+  height: 58px;
+}
+#root .second-main .char .name .name-sub > a > p img {
+  width: 58px;
+  height: 58px;
+}
+#root .second-main .char .name .name-sub .header-sub {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 999;
+  cursor: pointer;
+  background-color: #0e1015;
+}
+#root .second-main .char .name .name-sub .header-sub .list {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 9999;
+  background-color: #0e1015;
+  padding: 10px 0;
+}
+#root .second-main .char .name .name-sub .header-sub .list .e {
+  padding-right: 5px;
+}
+#root .second-main .char .name .name-sub .header-sub .list > div {
+  display: inherit;
+  transform: scale(0.8);
+  transition: 0.3s;
+}
+#root .second-main .char .name .name-sub .header-sub .list .deg {
+  transform: rotateX(180deg) scale(0.8);
+}
+#root .second-main .char .name .name-sub .header-sub .hidden {
+  width: 100%;
+  transition: 0.5s;
+  position: absolute;
+  left: 50%;
+  background-color: #0e1015;
+  border-radius: 0 0 25px 25px;
+}
+#root .second-main .char .name .name-sub .header-sub .hidden > ul > li a:link {
+  color: white;
+}
+#root .second-main .char .name .name-sub .header-sub .hidden > ul > li a:visited {
+  color: white;
+}
+#root .second-main .char .name .name-sub .header-sub .hidden > ul > li a:hover {
+  color: #40444f;
+}
+#root .second-main .char .name .name-sub .header-sub .hidden > ul > li:not(:last-child) {
+  border-bottom: 1px solid white;
+}
+#root .second-main .char .name .name-sub .header-sub .active {
+  transform: translate(-50%, 0%);
+}
+#root .second-main .char .name .name-sub .header-sub .noActive {
+  transform: translate(-50%, -100%);
+}
+#root .second-main .char .name .name-sub span img {
+  width: 24px;
+  height: 24px;
+  transform: scale(1.5);
+}
+#root .second-main .char .info {
+  margin-bottom: 50px;
+}
+#root .second-main .char .info .info-box {
+  justify-content: center;
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+}
+#root .second-main .char .info .info-box .serve {
+  width: 20%;
+  order: -1;
+}
+#root .second-main .char .info .info-box .serve dl {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  text-align: center;
+}
+#root .second-main .char .info .info-box .serve dl:not(:last-child) {
+  margin-bottom: 10px;
+}
+#root .second-main .char .info .info-box .serve dl dt {
+  display: inline-block;
+  background-color: #40444f;
+  border-radius: 20px;
+  font-weight: 700;
+}
+#root .second-main .char .info .info-box .serve dl dt:nth-of-type(1) {
+  padding: 2px 5px;
+  margin-right: 10px;
+}
+#root .second-main .char .info .info-box > div:nth-child(1) {
+  width: 40%;
+}
+#root .second-main .char .info .info-box > div:nth-child(1) .image {
+  width: 90%;
+  height: 700px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#root .second-main .char .info .info-box .stats {
+  width: 15%;
+  text-align: center;
+}
+#root .second-main .char .info .info-box .stats .stats-box {
+  display: flex;
+  flex-direction: column;
+}
+#root .second-main .char .info .info-box .stats .stats-box .basic {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+#root .second-main .char .info .info-box .stats .stats-box .basic > p {
+  width: 100%;
+  background-color: #40444f;
+  border-radius: 25px;
+  margin-bottom: 10px;
+}
+#root .second-main .char .info .info-box .stats .stats-box .basic .basic-second {
+  width: 100%;
+  display: flex;
+}
+#root .second-main .char .info .info-box .stats .stats-box .basic .basic-second div {
+  width: 50%;
+}
+#root .second-main .char .info .info-box .stats .stats-box .basic .basic-second div p:nth-of-type(2) {
+  color: #b34300;
+}
+#root .second-main .char .info .info-box .stats .stats-box .war {
+  display: flex;
+  flex-wrap: wrap;
+}
+#root .second-main .char .info .info-box .stats .stats-box .war > p {
+  width: 100%;
+  background-color: #40444f;
+  display: inline-block;
+  border-radius: 25px;
+  margin-bottom: 10px;
+}
+#root .second-main .char .info .info-box .stats .stats-box .war .war-second {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+#root .second-main .char .info .info-box .stats .stats-box .war .war-second div {
+  justify-content: space-between;
+  width: 50%;
+  display: flex;
+}
+#root .second-main .char .info .info-box .stats .stats-box .war .war-second div p:nth-of-type(1) {
+  padding: 0 0 10px 0;
+}
+#root .second-main .char .info .info-box .stats .stats-box .war .war-second div p:nth-of-type(2) {
+  color: #b34300;
+  padding-right: 10px;
+}
+#root .second-main .char .info .info-box .stats .stats-box .mococo {
+  display: flex;
+  flex-wrap: wrap;
+}
+#root .second-main .char .info .info-box .stats .stats-box .mococo > p {
+  width: 100%;
+  background-color: #40444f;
+  display: inline-block;
+  border-radius: 25px;
+  margin-bottom: 10px;
+}
+#root .second-main .char .info .info-box .stats .stats-box .mococo .mococo-second {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+#root .second-main .char .info .info-box .stats .stats-box .mococo .mococo-second div {
+  justify-content: space-between;
+  width: 50%;
+  display: flex;
+}
+#root .second-main .char .info .info-box .stats .stats-box .mococo .mococo-second div p:nth-of-type(1) {
+  padding: 0 0 10px 0;
+}
+#root .second-main .char .info .info-box .stats .stats-box .mococo .mococo-second div p:nth-of-type(2) {
+  color: #b34300;
+  padding-right: 10px;
+}
+#root .second-main .char .info .info-box .stats .stats-box .engrave > p {
+  width: 100%;
+  background-color: #40444f;
+  border-radius: 25px;
+  margin-bottom: 10px;
+}
+#root .second-main .char .info .info-box .stats .stats-box .engrave .engrave-second div {
+  margin-bottom: 10px;
+}
+#root .second-main .char .more {
+  width: 100%;
+  text-align: center;
+}
+#root .second-main .char .more > div {
+  width: 72.916%;
+  margin: 0 auto;
+}
+#root .second-main .char .more > div > ul {
+  display: flex;
+  justify-content: center;
+}
+#root .second-main .char .more > div > ul li {
+  border: 1px solid white;
+  border-radius: 5px;
+  margin: 0 5px;
+  position: relative;
+}
+#root .second-main .char .more > div > ul li img {
+  width: 100%;
+  height: 100%;
+}
+#root .second-main .char .more > div > ul li > p {
+  font-size: 1rem;
+  width: 25px;
+  position: absolute;
+  right: -7px;
+  bottom: -7px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: #0e1015;
+}
+#root .second-main .char .more > div > ul li .hidden {
+  display: none;
+}
+#root .second-main .char .more > div > ul li .tips {
+  display: block;
+  width: 150px;
+  background-color: black;
+  position: absolute;
+  bottom: 77px;
+  left: -50%;
+}
+
+@media screen and (max-width: 1575px) {
+  .App .first-main .search-box > ul li a .char-box .char-info p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .App .first-main .search-box > ul li a .char-box .char-info p:nth-child(odd) {
+    padding-right: 2px;
+  }
+  #root .second-main .char .name .name-sub > a {
+    left: 0%;
+  }
+  #root .second-main .char .info .info-box {
+    width: 100%;
+  }
+  #root .second-main .char .info .info-box .serve {
+    width: 20%;
+  }
+  #root .second-main .char .info .info-box .stats {
+    width: 20%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .App .first-main {
+    padding: 150px 0 1000px;
+  }
+  .App .first-main .search-box > ul {
+    width: 100%;
+    justify-content: center;
+  }
+  .App .first-main .search-box > ul li {
+    width: 30%;
+  }
+  .App .first-main .search-box > ul li:nth-child(even) {
+    margin: 0 5% 10% 5%;
+  }
+  .App .first-main .search-box > ul li:nth-child(odd) {
+    margin: 0 5% 10% 5%;
+  }
+  #root .second-main .char .info .info-box .serve {
+    width: 25%;
+  }
+  #root .second-main .char .info .info-box .serve dl dd {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  #root .second-main .char .info .info-box .stats {
+    width: 25%;
+  }
+  #root .second-main .char .more > div {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .App .first-main .search-box > ul li a .char-box p:nth-of-type(1) {
+    font-size: 1.1rem;
+  }
+  .App .first-main .search-box > ul li a .char-box .char-info p {
+    font-size: 1rem;
+  }
+  .App .first-main .search-box > ul li a .char-box .char-info p:nth-child(even) {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  #root dl, #root dd, #root dt {
+    font-size: 1.5rem;
+  }
+  #root p {
+    font-size: 1.3rem;
+  }
+  #root .second-main .char .info {
+    margin-bottom: 0;
+  }
+  #root .second-main .char .info .info-box {
+    flex-wrap: wrap;
+  }
+  #root .second-main .char .info .info-box > div:nth-of-type(1) {
+    margin-bottom: 20px;
+  }
+  #root .second-main .char .info .info-box .stats .stats-box .war .war-second div p:nth-of-type(1) {
+    padding: 0 0 15px 0;
+  }
+  #root .second-main .char .info .info-box > div:nth-child(1) {
+    width: 100%;
+  }
+  #root .second-main .char .info .info-box > div:nth-child(1) .image {
+    width: 100%;
+    height: auto;
+  }
+  #root .second-main .char .info .info-box .serve {
+    width: 49%;
+    order: 0;
+    display: inline-block;
+  }
+  #root .second-main .char .info .info-box .stats {
+    width: 38%;
+  }
+  #root .second-main .char .more > div > ul {
+    flex-wrap: wrap;
+  }
+  #root .second-main .char .more > div > ul li {
+    width: 12%;
+    margin-bottom: 12px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .App header form .inputwrapper input {
+    width: 200px;
+    padding: 0 20px;
+  }
+  .App .first-main .search-box > ul li {
+    width: 95%;
+  }
+  #root dl, #root dd, #root dt {
+    font-size: 1.2rem;
+  }
+  #root p {
+    font-size: 1.1rem;
+  }
+  #root .second-main .char .info {
+    margin-bottom: 0;
+  }
+  #root .second-main .char .info .info-box {
+    flex-wrap: wrap;
+  }
+  #root .second-main .char .info .info-box .stats .stats-box .war .war-second div p:nth-of-type(1) {
+    padding: 0 5px 10px 0;
+  }
+  #root .second-main .char .info .info-box > div:nth-child(1) {
+    width: 100%;
+  }
+  #root .second-main .char .info .info-box > div:nth-child(1) .image {
+    width: 100%;
+    height: auto;
+  }
+  #root .second-main .char .info .info-box .serve {
+    width: 49%;
+    order: 0;
+    display: inline-block;
+  }
+  #root .second-main .char .info .info-box .stats {
+    width: 49%;
+  }
+  #root .second-main .char .more > div > ul {
+    flex-wrap: wrap;
+  }
+  #root .second-main .char .more > div > ul li {
+    width: 12%;
+    margin-bottom: 12px;
+  }
+}
+@media screen and (max-width: 390px) {
+  #root dl, #root dd, #root dt {
+    font-size: 1rem;
+  }
+  #root p {
+    font-size: 0.9rem;
+  }
+  #root .second-main .char .info {
+    margin-bottom: 0;
+  }
+  #root .second-main .char .info .info-box {
+    flex-wrap: wrap;
+  }
+  #root .second-main .char .info .info-box .stats .stats-box .war .war-second div p:nth-of-type(1) {
+    padding: 0 0 10px 0;
+  }
+  #root .second-main .char .info .info-box > div:nth-child(1) {
+    width: 100%;
+  }
+  #root .second-main .char .info .info-box > div:nth-child(1) .image {
+    width: 100%;
+    height: auto;
+  }
+  #root .second-main .char .info .info-box .serve {
+    width: 51%;
+    order: 0;
+    display: inline-block;
+  }
+  #root .second-main .char .info .info-box .stats {
+    width: 38%;
+  }
+  #root .second-main .char .more > div > ul {
+    flex-wrap: wrap;
+  }
+  #root .second-main .char .more > div > ul li {
+    width: 12%;
+    margin-bottom: 12px;
+  }
+}
+@media screen and (max-width: 330px) {
+  #root .second-main .char .info .info-box .stats .stats-box .war .war-second div p:nth-of-type(2) {
+    padding-right: 5px;
+  }
+  #root .second-main .char .info .info-box .stats .stats-box .mococo .mococo-second div p:nth-of-type(2) {
+    padding-right: 5px;
+  }
+}/*# sourceMappingURL=App.css.map */

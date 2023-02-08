@@ -15,7 +15,7 @@ function List() {
       <div className='name'>
         <div className='name-sub'>
           <Link to="/">
-            <p><img src='./icon/mococo.gif' alt='메인으로가기'></img></p>
+            <p><img src='./icon/mococo2.gif' alt='메인으로가기'></img></p>
           </Link>
           <div className='header-sub' onClick={list}>
             <div className="list">
@@ -29,7 +29,7 @@ function List() {
           <div className={drop ? 'hidden active' : 'hidden noActive'}>
             <ul>
               {
-                drop && name.state.group.current.map((obj, key)=> {
+                name && name.state.group.current.map((obj, key)=> {
                   return <li key={key}>
                     <Link to={`/${obj.CharacterName}`} state={{ name : obj.CharacterName , group : name.state.group }} onClick={list}>
                       {obj.CharacterName}
