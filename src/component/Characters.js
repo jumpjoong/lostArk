@@ -13,6 +13,7 @@ function Characters() {
   const [gem, setGem] = useState();
   const [effects, setEffects] = useState();
   const [weapon, setWeapon] = useState();
+  const [hide, sethide] = useState(false);
   
   
   //입력한 캐릭터 프로필
@@ -113,10 +114,14 @@ function Characters() {
     color : '#2faba8'
   }
   
+  const more = () => {
+    sethide(!hide)
+  }
+
   return (
     <main className="second-main">
       <div className='char'>
-        <bigData.Provider value={{ name, char, gem, effects, weapon, legend, hero, relics, legendColor, heroColor, relicsColor, old, oldColor, estherColor, esther }}>
+        <bigData.Provider value={{ name, char, gem, effects, weapon, legend, hero, relics, legendColor, heroColor, relicsColor, old, oldColor, estherColor, esther, hide }}>
           <List />
           <div className="info">
             <div className="info-box">
@@ -273,7 +278,7 @@ function Characters() {
           <div className="weapon-wrap">
             <div className="wrap">
               <div className="see">
-                <button className="w"><p>더보기</p></button>
+                <button className="w" onClick={more}><p>더보기</p></button>
               </div>
               <Weapon />
             </div>
