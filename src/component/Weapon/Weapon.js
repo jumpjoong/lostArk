@@ -10,12 +10,11 @@ function Weapon() {
   const abilTip = abil && JSON.parse(abil[0].Tooltip)
 
   //새로고침 및 화면 전환 시 최초로 초기화
-  useEffect(()=> {
-    ccc.current = []
-  },[])
+  // useEffect(()=> {
+  //   ccc.current = []
+  // },[])
 
-  
-  
+  //배열 순서 바꾸는 함수
   const changeArrayOrder = function(list, targetIdx, moveValue) {
     // 배열값이 없는 경우 나가기
     if (list.length < 0) return;
@@ -37,6 +36,7 @@ function Weapon() {
     return tempList;
   };
   
+  //장비 배열 순서 바꿈
   let list1 = filt && changeArrayOrder(filt, 1, -1)
   let list2 = list1 && changeArrayOrder(list1, 6, -5)
   let list3 = list2 && changeArrayOrder(list2, 2, 8)
@@ -59,18 +59,22 @@ function Weapon() {
   let abilActive;
   bb = abil && Object.keys(abilTip)
   
+  //툴팁 
   if (bb !== undefined) {
     for (let i = 0; i < bb.length; i++) { 
       cc = [...cc, (abilTip[bb[i]])]
     }
   }
+  //어빌리티스톤 찾아내기
   if (cc.length == 10 || cc.length == 9) {
     abilActive = cc && cc.filter((item)=> item.type == "IndentStringGroup")
   }
-  //어빌 효과 따오기
+  //어빌리티스톤 상세하게 들어가기
   let abilNum = [];
   let abilEff = [];
   bb && abilNum.push(abilActive[0].value.Element_000.contentStr)
+  
+  //어빌리티 스톤 숫자 자르기
   for(let i = 0; i < 3; i++){
     let abilDetail = bb && abilActive[0].value.Element_000.contentStr[`Element_00${i}`].contentStr
     abilEff = bb && [...abilEff, abilDetail.slice(abilDetail.indexOf('+')+1,abilDetail.lastIndexOf('<'))]

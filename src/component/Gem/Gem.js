@@ -18,7 +18,6 @@ function Gem() {
     setTip(test);
   }
   
-
   return (
     <>
       {

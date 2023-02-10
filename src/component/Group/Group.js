@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom';
+import { useNavigate,Link } from 'react-router-dom';
 import { bigData } from '../myContext';
-
+import {}
 function Group() {
   const { img } = useContext(bigData)
   return (
