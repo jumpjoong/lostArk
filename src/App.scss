@@ -453,20 +453,33 @@ p, dl, dt, dd, li {
                 figure {
                   margin-bottom: 10px;
                   position: relative;
-                  img {
+                  > img {
                     border: 1px solid #dee2e6;
                     border-radius: 0.25rem;
                     max-width: 100%;
                     height: auto;
                     vertical-align: middle;
                   }
-                  > div {
+                  .num {
+                    position: absolute;
+                    width: 100%;
+                    transform: translateY(-50%);
+                    text-align: center;
+                    > img {
+                      border-radius: 0.25rem;
+                      border: 1px solid white;
+                      width: 33.3333333%;
+                      height: auto;
+                    }
+                  }
+                  .quality {
                     bottom: 0;
                     position: absolute;
                     border: 1px solid white;
                     border-radius: 0.25rem;
                     height: 10px;
                     width: 100%;
+                    background: #111518;
                     > p {
                       height: 100%;
                     }
@@ -554,6 +567,40 @@ p, dl, dt, dd, li {
     }
   }
 }
+@media screen and (max-width: 1365px) {
+  #root {
+    .second-main {
+      .char {
+        .weapon-wrap {
+          .wrap {
+            .eq {
+              .weapon {
+                width: 60%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1145px) {
+  #root {
+    .second-main {
+      .char {
+        .weapon-wrap {
+          .wrap {
+            .eq {
+              .weapon {
+                width: 70%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 1024px) {
   .App {
     .first-main {
@@ -598,6 +645,18 @@ p, dl, dt, dd, li {
         .more {
           > div {
             width: 100%;
+          }
+        }
+        .weapon-wrap {
+          .wrap {
+            .eq {
+              .weapon {
+                width: 100%;
+                .eq-weapon {
+                  padding-left: 70px;
+                }
+              } 
+            }
           }
         }
       }
@@ -700,7 +759,53 @@ p, dl, dt, dd, li {
       }
     }
   }
+}
+@media screen and (max-width: 660px) {
+  #root {
+    .second-main {
+      .char {
+        .weapon-wrap {
+          .wrap {
+            .eq {
+              .weapon {
+                .eq-weapon {
+                  padding-left: 30px;
+                }
+              } 
+            }
+          }
+        }
+      }
+    }
   }
+}
+@media screen and (max-width: 580px) {
+  #root {
+    .second-main {
+      .char {
+        .weapon-wrap {
+          .wrap {
+            .eq {
+              transform: scale(0.9);
+              .weapon {
+                .eq-weapon {
+                  padding-left: 0px;
+                  > div {
+                    p {
+                      &:nth-of-type(2) {
+                        font-size: 1.2rem;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 480px) {
   .App {
     header {
@@ -785,6 +890,71 @@ p, dl, dt, dd, li {
     }
   }
 }
+@media screen and (max-width: 455px) {
+  #root {
+    .second-main {
+      .char {
+        .weapon-wrap {
+          .wrap {
+            .eq {
+              transform: scale(1);
+              .weapon {
+                .eq-weapon {
+                  padding-left: 0px;
+                  overflow: hidden;
+                  figure {
+                    > img {
+                      width: 46px;
+                    }
+                  }
+                  > div {
+                    overflow: hidden;
+                    p {
+                      padding: 0 0 0 5px;
+                      &:nth-of-type(2) {
+                        font-size: 1.1rem;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 410px) {
+  #root {
+    .second-main {
+      .char {
+        .weapon-wrap {
+          .wrap {
+            .eq {
+              transform: scale(1);
+              .weapon {
+                .eq-weapon {
+                  padding-left: 0px;
+                  > div {
+                    p {
+                      font-size: 1rem;
+                      &:nth-of-type(2) {
+                        font-size: 1rem;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 390px) {
   #root {
     dl, dd, dt {
@@ -840,6 +1010,54 @@ p, dl, dt, dd, li {
               li {
                 width: 12%;
                 margin-bottom: 12px;
+              }
+            }
+          }
+        }
+        .weapon-wrap {
+          .wrap {
+            .eq {
+              .weapon {
+                .eq-weapon {
+                  > div {
+                    p {
+                      font-size: 0.9rem;
+                      &:nth-of-type(2) {
+                        font-size: 0.9rem;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 350px) {
+  #root {
+    .second-main {
+      .char {
+        .weapon-wrap {
+          .wrap {
+            .eq {
+              .weapon {
+                .eq-weapon {
+                  figure {
+                    margin-bottom: 5px;
+                  }
+                  > div {
+                    p {
+                      &:nth-of-type(2) {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                      }
+                    }
+                  }
+                }
               }
             }
           }

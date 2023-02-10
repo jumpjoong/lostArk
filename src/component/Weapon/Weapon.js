@@ -4,13 +4,17 @@ import { bigData } from '../myContext';
 function Weapon() {
   const { weapon, legend, hero, relics,legendColor, heroColor, relicsColor, old, oldColor, estherColor, esther, hide } = useContext(bigData)
   const ccc = useRef([])
+  const num = [];
+  const filt = weapon && weapon.filter((item)=> item.Type !== '')
+  const abil = weapon && weapon.filter((item)=> item.Type == "어빌리티 스톤")
+  const abilTip = abil && JSON.parse(abil[0].Tooltip)
 
   //새로고침 및 화면 전환 시 최초로 초기화
   useEffect(()=> {
     ccc.current = []
   },[])
 
-  let filt = weapon && weapon.filter((item)=> item.Type !== '')
+  
   
   const changeArrayOrder = function(list, targetIdx, moveValue) {
     // 배열값이 없는 경우 나가기
@@ -47,6 +51,30 @@ function Weapon() {
       ccc.current = [...ccc.current, JSON.parse(list7[i].Tooltip)]
     }
   }
+  // 각인 활성화 이미지
+  // let aa = [];
+  // aa = abilActive && Object.keys(abilActive);
+  let bb = [];
+  let cc = [];
+  let abilActive;
+  bb = abil && Object.keys(abilTip)
+  
+  if (bb !== undefined) {
+    for (let i = 0; i < bb.length; i++) { 
+      cc = [...cc, (abilTip[bb[i]])]
+    }
+  }
+  if (cc.length == 10 || cc.length == 9) {
+    abilActive = cc && cc.filter((item)=> item.type == "IndentStringGroup")
+  }
+  //어빌 효과 따오기
+  let abilNum = [];
+  let abilEff = [];
+  bb && abilNum.push(abilActive[0].value.Element_000.contentStr)
+  for(let i = 0; i < 3; i++){
+    let abilDetail = bb && abilActive[0].value.Element_000.contentStr[`Element_00${i}`].contentStr
+    abilEff = bb && [...abilEff, abilDetail.slice(abilDetail.indexOf('+')+1,abilDetail.lastIndexOf('<'))]
+  }
 
   return (
     <div className={hide ? "eq show" : "eq noShow"}>
@@ -58,6 +86,11 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`} >
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={relics}/>
+                    <div className="num">
+                      <img src = {`./icon/p${abilEff[0]}.png`} alt="이미지"/>
+                      <img src = {`./icon/p${abilEff[1]}.png`} alt="이미지"/>
+                      <img src = {`./icon/m${abilEff[2]}.png`} alt="이미지"/>
+                    </div>
                   </figure>
                   <div>
                     <p>{obj.Type}</p>
@@ -68,7 +101,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`} >
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={relics}/>
-                    <div className="quality" style= {relics}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor :'gray'}}></p>
                     </div>
                   </figure>
@@ -81,7 +114,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`} >
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={relics}/>
-                    <div className="quality" style= {relics}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "red"}}></p>
                     </div>
                   </figure>
@@ -94,7 +127,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`} >
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={relics}/>
-                    <div className="quality" style= {relics}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "rgb(219, 192, 0)"}}></p>
                     </div>
                   </figure>
@@ -107,7 +140,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`} >
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={relics}/>
-                    <div className="quality" style= {relics}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "rgb(0, 183, 0)"}}></p>
                     </div>
                   </figure>
@@ -120,7 +153,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`} >
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={relics}/>
-                    <div className="quality" style= {relics}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "rgb(0, 84, 255)"}}></p>
                     </div>
                   </figure>
@@ -133,7 +166,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`} >
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={relics}/>
-                    <div className="quality" style= {relics}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "rgb(255, 0, 221)"}}></p>
                     </div>
                   </figure>
@@ -146,7 +179,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`} >
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={relics}/>
-                    <div className="quality" style= {relics}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "rgb(255, 94, 0)"}}></p>
                     </div>
                   </figure>
@@ -161,6 +194,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`} >
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={legend}/>
+                    <p>{num}</p>
                   </figure>
                   <div>
                     <p>{obj.Type}</p>
@@ -171,7 +205,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`} >
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={legend}/>
-                    <div className="quality" style= {legend}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor :'gray'}}></p>
                     </div>
                   </figure>
@@ -184,7 +218,7 @@ function Weapon() {
               return <div key={key} className={`eq-weapon ${key}`}>
                 <figure>
                   <img src={obj.Icon} alt="이미지" style={legend}/>
-                  <div className="quality" style={legend}>
+                  <div className="quality">
                     <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`}}></p>
                   </div>
                 </figure>
@@ -197,7 +231,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                 <figure>
                   <img src={obj.Icon} alt="이미지" style={legend}/>
-                  <div className="quality" style={legend}>
+                  <div className="quality">
                     <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "rgb(219, 192, 0)"}}></p>
                   </div>
                 </figure>
@@ -210,7 +244,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                 <figure>
                   <img src={obj.Icon} alt="이미지" style={legend}/>
-                  <div className="quality" style={legend}>
+                  <div className="quality">
                     <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "rgb(0, 183, 0)"}}></p>
                   </div>
                 </figure>
@@ -223,7 +257,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                 <figure>
                   <img src={obj.Icon} alt="이미지" style={legend}/>
-                  <div className="quality" style={legend}>
+                  <div className="quality">
                     <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "rgb(0, 84, 255)"}}></p>
                   </div>
                 </figure>
@@ -236,7 +270,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                 <figure>
                   <img src={obj.Icon} alt="이미지" style={legend}/>
-                  <div className="quality" style={legend}>
+                  <div className="quality">
                     <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor: "rgb(255, 0, 221)"}}></p>
                   </div>
                 </figure>
@@ -249,7 +283,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                 <figure>
                   <img src={obj.Icon} alt="이미지" style={legend}/>
-                  <div className="quality" style={legend}>
+                  <div className="quality">
                     <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor: "rgb(255, 94, 0)"}}></p>
                   </div>
                 </figure>
@@ -264,6 +298,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`} >
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={old}/>
+                    <p>{num}</p>
                   </figure>
                   <div>
                     <p>{obj.Type}</p>
@@ -274,7 +309,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`} >
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={old}/>
-                    <div className="quality" style= {old}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor :'gray'}}></p>
                     </div>
                   </figure>
@@ -287,7 +322,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={old}/>
-                    <div className="quality" style={old}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`}}></p>
                     </div>
                   </figure>
@@ -300,7 +335,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={old}/>
-                    <div className="quality" style={old}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "rgb(219, 192, 0)"}}></p>
                     </div>
                   </figure>
@@ -313,7 +348,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={old}/>
-                    <div className="quality" style={old}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "rgb(0, 183, 0)"}}></p>
                     </div>
                   </figure>
@@ -326,7 +361,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={old}/>
-                    <div className="quality" style={old}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "rgb(0, 84, 255)"}}></p>
                     </div>
                   </figure>
@@ -339,7 +374,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={old}/>
-                    <div className="quality" style={old}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor: "rgb(255, 0, 221)"}}></p>
                     </div>
                   </figure>
@@ -352,7 +387,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                 <figure>
                   <img src={obj.Icon} alt="이미지" style={old}/>
-                  <div className="quality" style={old}>
+                  <div className="quality">
                     <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor: "rgb(255, 94, 0)"}}></p>
                   </div>
                 </figure>
@@ -367,6 +402,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`} >
                 <figure>
                   <img src={obj.Icon} alt="이미지" style={esther}/>
+                  <p>{num}</p>
                 </figure>
                 <div>
                   <p>{obj.Type}</p>
@@ -377,7 +413,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`} >
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={esther}/>
-                    <div className="quality" style= {esther}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor :'gray'}}></p>
                     </div>
                   </figure>
@@ -390,7 +426,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={esther}/>
-                    <div className="quality" style={esther}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`}}></p>
                     </div>
                   </figure>
@@ -403,7 +439,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={esther}/>
-                    <div className="quality" style={esther}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "rgb(219, 192, 0)"}}></p>
                     </div>
                   </figure>
@@ -416,7 +452,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={esther}/>
-                    <div className="quality" style={esther}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "rgb(0, 183, 0)"}}></p>
                     </div>
                   </figure>
@@ -429,7 +465,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={esther}/>
-                    <div className="quality" style={esther}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "rgb(0, 84, 255)"}}></p>
                     </div>
                   </figure>
@@ -442,7 +478,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={esther}/>
-                    <div className="quality" style={esther}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor: "rgb(255, 0, 221)"}}></p>
                     </div>
                   </figure>
@@ -455,7 +491,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={esther}/>
-                    <div className="quality" style={esther}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor: "rgb(255, 94, 0)"}}></p>
                     </div>
                   </figure>
@@ -470,6 +506,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`} >
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={relics}/>
+                    <p>{num}</p>
                   </figure>
                   <div>
                     <p>{obj.Type}</p>
@@ -480,7 +517,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`} >
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={relics}/>
-                    <div className="quality" style= {relics}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor :'gray'}}></p>
                     </div>
                   </figure>
@@ -493,7 +530,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={hero} />
-                    <div className="quality" style={hero}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`}}></p>
                     </div>
                   </figure>
@@ -506,7 +543,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={hero} />
-                    <div className="quality" style={hero}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "rgb(219, 192, 0)"}}></p>
                     </div>
                   </figure>
@@ -519,7 +556,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={hero} />
-                    <div className="quality" style={hero}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "rgb(0, 183, 0)"}}></p>
                     </div>
                   </figure>
@@ -532,7 +569,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={hero} />
-                    <div className="quality" style={hero}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor : "rgb(0, 84, 255)"}}></p>
                     </div>
                   </figure>
@@ -545,7 +582,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={hero} />
-                    <div className="quality" style={hero}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor: "rgb(255, 0, 221)"}}></p>
                     </div>
                   </figure>
@@ -558,7 +595,7 @@ function Weapon() {
                 return <div key={key} className={`eq-weapon ${key}`}>
                   <figure>
                     <img src={obj.Icon} alt="이미지" style={hero} />
-                    <div className="quality" style={hero}>
+                    <div className="quality">
                       <p style={{width : `${ccc.current[key].Element_001.value.qualityValue}%`, backgroundColor: "rgb(255, 94, 0)"}}></p>
                     </div>
                   </figure>
