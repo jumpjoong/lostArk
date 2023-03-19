@@ -1,23 +1,21 @@
 import '../App.scss';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useLocation } from 'react-router-dom';
 import { bigData } from './myContext';
 import List from './List/List';
 import Gem from './Gem/Gem'
 import Weapon from './Weapon/Weapon';
+import { AppC } from './Context';
 
 function Characters() {
   const name = useLocation();
-  const [char, setChar] = useState();
   const [engra, setEngra] = useState();
-  const [gem, setGem] = useState();
-  const [effects, setEffects] = useState();
-  const [weapon, setWeapon] = useState();
-  const [hide, sethide] = useState(false);
+  const { char, setChar, setGem, setEffects, setWeapon, hide, setHide} = useContext(AppC);
+  
   
   
   //입력한 캐릭터 프로필
-  useEffect(()=> {
+  useEffect( ()=> {
     name && fetch(`https://developer-lostark.game.onstove.com/armories/characters/${name.state.name}/profiles`,{
       headers:{
         'accept':'application/json',
@@ -95,47 +93,13 @@ function Characters() {
   useEffect(()=> {
     window.scrollTo(0, 0)
   },[])
-
-  const legend = { //전설 백그라운드
-    background : 'linear-gradient(135deg, #362003, #9e5f04)'
-  };
-  const hero = {  //영웅 백그라운드
-    background : 'linear-gradient(135deg, #261331, #480d5d)'
-  }
-  
-  const relics = {  //유물 백그라운드
-    background : 'linear-gradient(135deg, #341a09, #a24006)'
-  }
-  const old = {
-    background : 'linear-gradient(135deg, #3d3325, #dcc999)'
-  }
-  const esther = {
-    background : 'linear-gradient(135deg,#0c2e2c,#2faba8)'
-  }
-  const oldColor = {
-    color : '#dcc999'
-  }
-  const legendColor = {
-    color :  '#9e5f04'
-  }
-  const heroColor = {
-    color :  '#480d5d'
-  }
-  const relicsColor = {
-    color :  '#a24006'
-  }
-  const estherColor = {
-    color : '#2faba8'
-  }
-  
   const more = () => {
-    sethide(!hide)
+    setHide(!hide)
   }
-  console.log(effects)
   return (
     <main className="second-main">
       <div className='char'>
-        <bigData.Provider value={{ name, char, gem, effects, weapon, legend, hero, relics, legendColor, heroColor, relicsColor, old, oldColor, estherColor, esther, hide }}>
+        <bigData.Provider value={{ name }}>
           <List />
           <div className="info">
             <div className="info-box">

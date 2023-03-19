@@ -1,11 +1,12 @@
 import React, { useContext, useRef, useState } from 'react'
 import { bigData } from '../myContext';
 import { Link } from 'react-router-dom';
+import { AppC } from '../Context';
 
 function List() {
   const [drop, setDrop] = useState(false);
-  const { name, char } = useContext(bigData);
-  
+  const { name } = useContext(bigData);
+  const {char} = useContext(AppC);
 
   //드롭다운 메뉴
   const list = () => {

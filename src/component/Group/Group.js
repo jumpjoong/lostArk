@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
-import { bigData } from '../myContext';
+import { AppC } from '../Context';
 function Group() {
-  const { img } = useContext(bigData)
+  const { img } = useContext(AppC);
   
   return (
     <>
