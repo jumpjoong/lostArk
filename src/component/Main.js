@@ -1,15 +1,13 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, {useState, useRef, useEffect, useContext} from 'react';
 import '../App.scss';
-import { bigData } from './myContext'
 import Group from './Group/Group';
 import Insert from './Insert/Insert';
+import { AppC } from './Context';
 
 function Main() {
-  const [input, setInput] = useState();
   const [state, setState] = useState(0);
-  const elName = useRef('');
-  const img = useRef([]);
   const length = useRef()
+  const {elName, input, img} = useContext(AppC);
   
   //데이터 검색
   const searchE = () => {
@@ -71,25 +69,17 @@ function Main() {
     }
   }
   //검색 이벤트
-  const search = (e) => {
-      e.preventDefault();
-      setInput(elName.current.value); //인풋창에 입력한 정보를 setInput으로 보냄
-      document.cookie = "safeCookie1=foo; SameSite=Lax"; 
-      document.cookie = "safeCookie2=foo";  
-      document.cookie = "crossCookie=bar; SameSite=None; Secure";
-  }
+  
   
   return (
     <div className="App">
       <header>
-        <Insert search={search} elName={elName}/>
+        <Insert/>
       </header>
       <main className="first-main">
         <div className="search-box">
           <ul>
-            <bigData.Provider value ={{ img }}>
-              <Group />
-            </bigData.Provider>
+            <Group />
           </ul>
         </div>
       </main>

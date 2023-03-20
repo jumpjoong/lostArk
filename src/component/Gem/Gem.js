@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react'
-import { bigData } from '../myContext';
+import { AppC } from '../Context';
 
 function Gem() {
   const [tip, setTip] = useState([false,false,false,false,false,false,false,false,false,false,false]);
-  const { gem, effects, legend, hero } = useContext(bigData)
+  const {gem, effects, legend, hero} = useContext(AppC);
 
   //보석 마우스 아웃 시 이벤트
   const mouseOut = () => {

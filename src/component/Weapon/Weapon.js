@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useRef } from 'react'
-import { bigData } from '../myContext';
+import { AppC } from '../Context';
 
 function Weapon() {
-  const { weapon, legend, hero, relics,legendColor, heroColor, relicsColor, old, oldColor, estherColor, esther, hide } = useContext(bigData)
+  const {weapon, hide, legend, hero, relics,legendColor, heroColor, relicsColor, old, oldColor, estherColor, esther } = useContext(AppC);
   const ccc = useRef([])
   const num = [];
   const filt = weapon && weapon.filter((item)=> item.Type !== '')
