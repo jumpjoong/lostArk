@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react'
 import { AppC } from '../Context';
-import { bigData } from '../myContext';
 
 function Weapon() {
   const {weapon, hide, legend, hero, relics,legendColor, heroColor, relicsColor, old, oldColor, estherColor, esther } = useContext(AppC);

@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { AppC } from '../Context';
 function Group() {
   const { img } = useContext(AppC);
-  
   return (
     <>
       {

@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react'
 import { AppC } from '../Context';
-import { bigData } from '../myContext';
 
 function Gem() {
   const [tip, setTip] = useState([false,false,false,false,false,false,false,false,false,false,false]);

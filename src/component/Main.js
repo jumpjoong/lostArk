@@ -1,6 +1,5 @@
 import React, {useState, useRef, useEffect, useContext} from 'react';
 import '../App.scss';
-import { bigData } from './myContext'
 import Group from './Group/Group';
 import Insert from './Insert/Insert';
 import { AppC } from './Context';

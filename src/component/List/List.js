@@ -1,19 +1,16 @@
 import React, { useContext, useRef, useState } from 'react'
-import { bigData } from '../myContext';
 import { Link } from 'react-router-dom';
 import { AppC } from '../Context';
 
 function List() {
   const [drop, setDrop] = useState(false);
-  const { name } = useContext(bigData);
-  const {char} = useContext(AppC);
-
+  const { char, img } = useContext(AppC);
   //드롭다운 메뉴
   const list = () => {
     setDrop(!drop)
   }
 
-  if (name !== undefined) {
+  if (img !== undefined) {
     return (
       <div className='name'>
         <div className='name-sub'>
@@ -32,12 +29,12 @@ function List() {
           <div className={drop ? 'hidden active' : 'hidden noActive'}>
             <ul>
               {
-                name && name.state.group.current.map((obj, key)=> {
+                img && img.current.map((obj, key)=> {
                   return <li key={key}>
-                    <Link to={`/${obj.CharacterName}`} state={{ name : obj.CharacterName , group : name.state.group }} onClick={list}>
+                    <Link to={`/${obj.CharacterName}`} state={{ name : obj.CharacterName , group : img.current }} onClick={list}>
                       {obj.CharacterName}
                     </Link>
-                    </li>
+                  </li>
                 })
               }
             </ul>

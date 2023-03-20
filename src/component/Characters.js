@@ -1,7 +1,6 @@
 import '../App.scss';
 import React, { useState, useEffect, useContext } from 'react'
 import { useLocation } from 'react-router-dom';
-import { bigData } from './myContext';
 import List from './List/List';
 import Gem from './Gem/Gem'
 import Weapon from './Weapon/Weapon';
@@ -11,8 +10,6 @@ function Characters() {
   const name = useLocation();
   const [engra, setEngra] = useState();
   const { char, setChar, setGem, setEffects, setWeapon, hide, setHide} = useContext(AppC);
-  
-  
   
   //입력한 캐릭터 프로필
   useEffect( ()=> {
@@ -99,169 +96,167 @@ function Characters() {
   return (
     <main className="second-main">
       <div className='char'>
-        <bigData.Provider value={{ name }}>
-          <List />
-          <div className="info">
-            <div className="info-box">
-              <div>
-                <img src = {char && char.CharacterImage} alt="" className='image'></img>
-              </div>
-              <div className="serve">
-                <dl className='server'>
-                  <dt>&nbsp;서&nbsp;&nbsp;&nbsp;&nbsp;버&nbsp;</dt>
-                  <dd>
+        <List />
+        <div className="info">
+          <div className="info-box">
+            <div>
+              <img src = {char && char.CharacterImage} alt="" className='image'></img>
+            </div>
+            <div className="serve">
+              <dl className='server'>
+                <dt>&nbsp;서&nbsp;&nbsp;&nbsp;&nbsp;버&nbsp;</dt>
+                <dd>
+                  {
+                    char && char.ServerName
+                  }
+                </dd>
+              </dl>
+              <dl className='class'>
+                <dt>&nbsp;클래스&nbsp;</dt>
+                <dd>
+                  {
+                    char && char.CharacterClassName
+                  }
+                </dd>
+              </dl>
+              <dl className='expedition-level'>
+                <dt>&nbsp;원정대&nbsp;</dt>
+                <dd>
+                  {
+                    char && char.ExpeditionLevel
+                  }
+                </dd>
+              </dl>
+              <dl className='level'>
+                <dt>&nbsp;전&nbsp;&nbsp;&nbsp;&nbsp;투&nbsp;</dt>
+                <dd>
+                  {
+                    char && char.CharacterLevel
+                  }
+                </dd>
+              </dl>
+              <dl className='item-level'>
+                <dt>&nbsp;템&nbsp;&nbsp;&nbsp;&nbsp;렙&nbsp;</dt>
+                <dd>
+                  {
+                    char && char.ItemAvgLevel
+                  }
+                </dd>
+              </dl>
+              <dl className='town-level'>
+                <dt>&nbsp;영&nbsp;&nbsp;&nbsp;&nbsp;지&nbsp;</dt>
+                <dd>Lv. 
+                  {
+                    char && char.TownLevel
+                  }&nbsp;
+                  {
+                    char && char.TownName
+                  }
+                </dd>
+              </dl>
+              <dl className='pvp-level'>
+                <dt>&nbsp;P&nbsp;&nbsp;V&nbsp;&nbsp;P&nbsp;</dt>
+                <dd>
+                  {
+                    char && char.PvpGradeName
+                  }
+                </dd>
+              </dl>
+              <dl className='guild'>
+                <dt>&nbsp;길&nbsp;&nbsp;&nbsp;&nbsp;드&nbsp;</dt>
+                <dd>
+                  {
+                    char && char.GuildName
+                  }
+                </dd>
+              </dl>
+            </div>
+            <div className="stats">
+              <div className="stats-box">
+                <div className="basic">
+                  <p>기본특성</p>
+                  <div className="basic-second">
                     {
-                      char && char.ServerName
+                      je && je.map((obj, key)=> {
+                        return <div key={key}>
+                          <p >
+                            {obj.Type}
+                          </p>
+                          <p>
+                            {obj.Value}
+                          </p>
+                        </div>
+                      })
                     }
-                  </dd>
-                </dl>
-                <dl className='class'>
-                  <dt>&nbsp;클래스&nbsp;</dt>
-                  <dd>
-                    {
-                      char && char.CharacterClassName
-                    }
-                  </dd>
-                </dl>
-                <dl className='expedition-level'>
-                  <dt>&nbsp;원정대&nbsp;</dt>
-                  <dd>
-                    {
-                      char && char.ExpeditionLevel
-                    }
-                  </dd>
-                </dl>
-                <dl className='level'>
-                  <dt>&nbsp;전&nbsp;&nbsp;&nbsp;&nbsp;투&nbsp;</dt>
-                  <dd>
-                    {
-                      char && char.CharacterLevel
-                    }
-                  </dd>
-                </dl>
-                <dl className='item-level'>
-                  <dt>&nbsp;템&nbsp;&nbsp;&nbsp;&nbsp;렙&nbsp;</dt>
-                  <dd>
-                    {
-                      char && char.ItemAvgLevel
-                    }
-                  </dd>
-                </dl>
-                <dl className='town-level'>
-                  <dt>&nbsp;영&nbsp;&nbsp;&nbsp;&nbsp;지&nbsp;</dt>
-                  <dd>Lv. 
-                    {
-                      char && char.TownLevel
-                    }&nbsp;
-                    {
-                      char && char.TownName
-                    }
-                  </dd>
-                </dl>
-                <dl className='pvp-level'>
-                  <dt>&nbsp;P&nbsp;&nbsp;V&nbsp;&nbsp;P&nbsp;</dt>
-                  <dd>
-                    {
-                      char && char.PvpGradeName
-                    }
-                  </dd>
-                </dl>
-                <dl className='guild'>
-                  <dt>&nbsp;길&nbsp;&nbsp;&nbsp;&nbsp;드&nbsp;</dt>
-                  <dd>
-                    {
-                      char && char.GuildName
-                    }
-                  </dd>
-                </dl>
-              </div>
-              <div className="stats">
-                <div className="stats-box">
-                  <div className="basic">
-                    <p>기본특성</p>
-                    <div className="basic-second">
-                      {
-                        je && je.map((obj, key)=> {
-                          return <div key={key}>
-                            <p >
-                              {obj.Type}
-                            </p>
-                            <p>
-                              {obj.Value}
-                            </p>
-                          </div>
-                        })
-                      }
-                    </div>
                   </div>
-                  <div className="war">
-                  <p>전투특성</p>
-                    <div className="war-second">
-                      {
-                        char && ms.map((obj, key)=> {
-                          return <div key={key}>
-                            <p >
-                              {obj.Type}
-                            </p>
-                            <p>
-                              {obj.Value}
-                            </p>
-                          </div>
-                        })
-                      }
-                    </div>
+                </div>
+                <div className="war">
+                <p>전투특성</p>
+                  <div className="war-second">
+                    {
+                      char && ms.map((obj, key)=> {
+                        return <div key={key}>
+                          <p >
+                            {obj.Type}
+                          </p>
+                          <p>
+                            {obj.Value}
+                          </p>
+                        </div>
+                      })
+                    }
                   </div>
-                  <div className="mococo">
-                  <p>성향</p>
-                    <div className="mococo-second">
-                      {
-                        char && char.Tendencies.map((obj, key)=> {
-                          return <div key={key}>
-                            <p >
-                              {obj.Type}
-                            </p>
-                            <p>
-                              {obj.Point}
-                            </p>
-                          </div>
-                        })
-                      }
-                    </div>
+                </div>
+                <div className="mococo">
+                <p>성향</p>
+                  <div className="mococo-second">
+                    {
+                      char && char.Tendencies.map((obj, key)=> {
+                        return <div key={key}>
+                          <p >
+                            {obj.Type}
+                          </p>
+                          <p>
+                            {obj.Point}
+                          </p>
+                        </div>
+                      })
+                    }
                   </div>
-                  <div className="engrave">
-                  <p>각인 효과</p>
-                    <div className="engrave-second">
-                      {
-                        engra && engra.Effects.map((obj, key)=> {
-                          return <div key={key}>
-                            <p >
-                              {obj.Name}
-                            </p>
-                          </div>
-                        })
-                      }
-                    </div>
+                </div>
+                <div className="engrave">
+                <p>각인 효과</p>
+                  <div className="engrave-second">
+                    {
+                      engra && engra.Effects.map((obj, key)=> {
+                        return <div key={key}>
+                          <p >
+                            {obj.Name}
+                          </p>
+                        </div>
+                      })
+                    }
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="more">
-            <div className="">
-              <ul>
-                <Gem />
-              </ul>
-            </div>
+        </div>
+        <div className="more">
+          <div className="">
+            <ul>
+              <Gem />
+            </ul>
           </div>
-          <div className="weapon-wrap">
-            <div className="wrap">
-              <div className="see">
-                <button className="w" onClick={more}><p>더보기</p></button>
-              </div>
-              <Weapon />
+        </div>
+        <div className="weapon-wrap">
+          <div className="wrap">
+            <div className="see">
+              <button className="w" onClick={more}><p>더보기</p></button>
             </div>
+            <Weapon />
           </div>
-        </bigData.Provider>
+        </div>
       </div>
     </main>
   )
