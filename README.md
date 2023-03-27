@@ -25,6 +25,8 @@
 <br/>
 
 ## 💚 사용한 기술 스택
+<img src="https://img.shields.io/badge/JavaScript-F9A03C?style=flat-square&logo=JavaScript&logoColor=white"/>&nbsp;
+<img src="https://img.shields.io/badge/React-09B2DC?style=flat-square&logo=React&logoColor=white"/>&nbsp;
 
 ## 💜 구현 기능
 
