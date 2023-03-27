@@ -25,8 +25,13 @@
 <br/>
 
 ## 💚 사용한 기술 스택
-<img src="https://img.shields.io/badge/JavaScript-F9A03C?style=flat-square&logo=JavaScript&logoColor=white"/>&nbsp;
-<img src="https://img.shields.io/badge/React-09B2DC?style=flat-square&logo=React&logoColor=white"/>&nbsp;
+|...|...|
+![react](https://user-images.githubusercontent.com/100519998/227874284-72192c04-3f8b-4ae7-94d8-de30a043166a.svg)
+![javascript](https://user-images.githubusercontent.com/100519998/227874293-094f0853-e94a-4a78-8b83-8f1012f9c4e6.svg)
+![sass](https://user-images.githubusercontent.com/100519998/227877981-7552edea-b3d7-401b-9500-468e56285567.svg)
+
+
+
 
 ## 💜 구현 기능
 
