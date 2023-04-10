@@ -1,6 +1,6 @@
 # 💛 lost Ark 캐릭터 검색
 
-[로스트아크 캐릭터 검색](https://khj0196.dothome.co.kr)
+[로스트아크 캐릭터 검색](http://khj0196.dothome.co.kr)
 
 <br/>
 
