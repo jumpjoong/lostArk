@@ -1,6 +1,9 @@
 # 💡 lost Ark 캐릭터 검색
+👇👇👇👇👇👇👇👇
 
-[로스트아크 캐릭터 검색](http://khj0196.dothome.co.kr)
+[프로젝트 접속하기](http://khj0196.dothome.co.kr)
+
+👆👆👆👆👆👆👆👆
 
 <br/>
 
