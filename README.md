@@ -35,9 +35,9 @@
 <br/>
 
 ## 📍 사용한 기술 스택
-| REACT | JS | SCSS |
-|:---:|:---:|:---:|
-| ![react](https://user-images.githubusercontent.com/100519998/227874284-72192c04-3f8b-4ae7-94d8-de30a043166a.svg)| ![javascript](https://user-images.githubusercontent.com/100519998/227874293-094f0853-e94a-4a78-8b83-8f1012f9c4e6.svg)| ![sass](https://user-images.githubusercontent.com/100519998/227877981-7552edea-b3d7-401b-9500-468e56285567.svg) |
+| REACT | SCSS |
+|:---:|:---:|
+| ![react](https://user-images.githubusercontent.com/100519998/227874284-72192c04-3f8b-4ae7-94d8-de30a043166a.svg)| ![sass](https://user-images.githubusercontent.com/100519998/227877981-7552edea-b3d7-401b-9500-468e56285567.svg) |
 
 <br/>
 <br/>
