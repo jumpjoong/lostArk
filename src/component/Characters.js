@@ -9,7 +9,7 @@ import { AppC } from './Context';
 function Characters() {
   const name = useLocation();
   const [engra, setEngra] = useState();
-  const { char, setChar, setGem, setEffects, setWeapon, hide, setHide} = useContext(AppC);
+  const { gem, char, setChar, setGem, setEffects, setWeapon, hide, setHide} = useContext(AppC);
   
   //입력한 캐릭터 프로필
   useEffect( ()=> {
@@ -245,7 +245,11 @@ function Characters() {
         <div className="more">
           <div className="">
             <ul>
-              <Gem />
+              {
+                gem && gem.Gems.map((obj, key) => {
+                  return <Gem key={key} idx={obj.Slot} obj={obj}/>
+                })
+              }
             </ul>
           </div>
         </div>

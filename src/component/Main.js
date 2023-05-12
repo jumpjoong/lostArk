@@ -6,8 +6,9 @@ import { AppC } from './Context';
 
 function Main() {
   const [state, setState] = useState(0);
-  const length = useRef()
+  const length = useRef();
   const {elName, input, img} = useContext(AppC);
+  const body = document.getElementsByTagName("body");
   
   //데이터 검색
   const searchE = () => {
@@ -57,15 +58,16 @@ function Main() {
   useEffect(() => {
     img.current = []
     searchE()
-  },[input])
+    body[0].style = `height: 100vh; background-color: #15181d`
+  },[input]);
 
   //마지막 개수 확인용 및 없는 닉네임 에러 출력
   const group = (aaa) => {
     try {
-      length.current = aaa.length
+      length.current = aaa.length;
     } catch {
-      alert('닉네임 정보가 없습니다! 다시 입력하세요.')
-      elName.current.value = ''
+      alert('닉네임 정보가 없습니다! 다시 입력하세요.');
+      elName.current.value = '';
     }
   }
   //검색 이벤트

@@ -1,49 +1,40 @@
 import React, { useState, useContext } from 'react'
 import { AppC } from '../Context';
 
-function Gem() {
-  const [tip, setTip] = useState([false,false,false,false,false,false,false,false,false,false,false]);
-  const {gem, effects, legend, hero} = useContext(AppC);
-
+function Gem({idx, obj}) {
+  const [tip, setTip] = useState(false);
+  const {effects, legend, hero} = useContext(AppC);
+  
   //보석 마우스 아웃 시 이벤트
   const mouseOut = () => {
-    let test = [false,false,false,false,false,false,false,false,false,false,false];
-    setTip(test);
+    setTip(!tip)
   }
   //보석 마우스 오버 시 이벤트
-  const mouse = (e) => {
-    let test = [...tip];
-    test[e] = true;
-    // test[e]=!test[e];
-    setTip(test);
+  const mouse = () => {
+    setTip(!tip)
   }
-  
   return (
     <>
       {
-        gem && gem.Gems.map((obj, key)=> {
-          if (obj.Grade === "전설" || obj.Grade === "유물") {
-            return <li key={key} style={legend} onMouseEnter={()=>mouse(key)} onMouseLeave={()=>mouseOut(key)} >
-                <img src={`${obj.Icon}`} alt="보석" />
-                <p>{obj.Level}</p>
-                <div className={tip[key] ? 'tips' : 'hidden'}>
-                  <p className="gem-info" dangerouslySetInnerHTML={{__html: obj.Name}}/>
-                  <p>{effects[key].Name}</p>
-                  <p>{effects[key].Description}</p>
-                </div>
-              </li>
-          } else {
-            return <li key={key} style={hero} onMouseEnter={()=>mouse(key)} onMouseLeave={()=>mouseOut(key)}>
-                <img src={`${obj.Icon}`} alt="보석" />
-                <p>{obj.Level}</p>
-                <div className={tip[key] ? 'tips' : 'hidden'}>
-                  <p className="gem-info " dangerouslySetInnerHTML={{__html: obj.Name}} />
-                  <p>{effects[key].Name}</p>
-                  <p>{effects[key].Description}</p>
-                </div>
-              </li>
-          }
-        })
+        obj.Grade === "전설" || obj.Grade === "유물" ? 
+        <li idx={idx} style={legend} onMouseEnter={mouse} onMouseLeave={mouseOut} >
+          <img src={`${obj.Icon}`} alt="보석" />
+          <p>{obj.Level}</p>
+          <div className={tip ? 'tips' : 'hidden'}>
+            <p className="gem-info" dangerouslySetInnerHTML={{__html: obj.Name}}/>
+            <p>{effects[idx].Name}</p>
+            <p>{effects[idx].Description}</p>
+          </div>
+        </li>
+        : <li idx={idx} style={hero} onMouseEnter={mouse} onMouseLeave={mouseOut}>
+            <img src={`${obj.Icon}`} alt="보석" />
+            <p>{obj.Level}</p>
+            <div className={tip ? 'tips' : 'hidden'}>
+              <p className="gem-info " dangerouslySetInnerHTML={{__html: obj.Name}} />
+              <p>{effects[idx].Name}</p>
+              <p>{effects[idx].Description}</p>
+            </div>
+          </li>
       }
     </>
     
